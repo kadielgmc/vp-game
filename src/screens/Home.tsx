@@ -1,27 +1,35 @@
 import React from 'react';
-import logo from '../assets/logo.png'; // ✅ Importa el logo correctamente
-import { useGame } from '../context/GameContext';
+import logo from '../assets/logo.png';
 
 type HomeProps = {
-  onNavigate: (screen: string) => void;
+  onNavigate: (level: string) => void;
 };
 
 const Home: React.FC<HomeProps> = ({ onNavigate }) => {
-  const { resetGame } = useGame();
-
   const handleLevelSelect = (level: string) => {
-    resetGame();
     onNavigate(level);
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center py-8">
-      <div className="text-center mb-8">
-        <img src={logo} alt="Logo" className="w-32 h-auto mx-auto mb-4" />
-        <h1 className="text-4xl font-bold mt-6 mb-2 text-primary">
-          VP 😁 Aprende Passive Voice Jugando 🎯
+      <div className="text-center mb-4">
+        {/* LOGO VISUAL */}
+        <img
+          src={logo}
+          alt="Logo"
+          className="w-32 h-auto mx-auto mb-4"
+        />
+
+        {/* Emoji */}
+        <div className="text-5xl mb-4">😄</div>
+
+        {/* Título */}
+        <h1 className="text-4xl font-bold mt-2 mb-2 text-primary">
+          ¡Aprende Passive Voice Jugando! 🎯
         </h1>
-        <p className="text-xl mb-8 px-4 py-3 bg-accent text-text-primary rounded-lg font-bold inline-block mt-4">
+
+        {/* Subtítulo */}
+        <p className="text-xl mb-4 px-4 py-3 bg-accent text-text-primary rounded-lg font-bold inline-block mt-4">
           ¿Una clase aburrida? Nah… ¡Esto es una misión de inglés!
         </p>
       </div>
@@ -29,7 +37,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       {/* Sección Aprendiz */}
       <div className="flex flex-col items-center w-full max-w-md px-4 mb-12">
         <h2 className="text-2xl font-bold mb-6 text-blue-500">
-          Sección Aprendiz 👩‍🎓👨‍🎓
+          Sección Aprendiz 🎓👨‍🎓
         </h2>
         <button
           className="w-full py-4 mb-4 rounded-full text-white font-bold text-lg bg-green-500 hover:bg-green-600"
