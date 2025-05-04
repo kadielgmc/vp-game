@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.png'; // ✅ Importa el logo correctamente
+import { useGame } from '../context/GameContext';
 
 type HomeProps = {
-  onNavigate: (level: string) => void;
+  onNavigate: (screen: string) => void;
 };
 
 const Home: React.FC<HomeProps> = ({ onNavigate }) => {
-  const resetGame = useGame();
+  const { resetGame } = useGame();
 
   const handleLevelSelect = (level: string) => {
     resetGame();
@@ -18,7 +19,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       <div className="text-center mb-8">
         <img src={logo} alt="Logo" className="w-32 h-auto mx-auto mb-4" />
         <h1 className="text-4xl font-bold mt-6 mb-2 text-primary">
-          VP 🎯 Aprende Passive Voice Jugando
+          VP 😁 Aprende Passive Voice Jugando 🎯
         </h1>
         <p className="text-xl mb-8 px-4 py-3 bg-accent text-text-primary rounded-lg font-bold inline-block mt-4">
           ¿Una clase aburrida? Nah… ¡Esto es una misión de inglés!
@@ -56,7 +57,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           Sección Maestro 🧙‍♂️🧙‍♀️
         </h2>
         <button
-          className="w-full py-4 rounded-full text-white font-bold text-lg bg-purple-500 hover:bg-purple-600"
+          className="w-full py-4 mb-4 rounded-full text-white font-bold text-lg bg-purple-600 hover:bg-purple-700"
           onClick={() => handleLevelSelect('level4')}
         >
           Nivel 4 (Boss Final)
