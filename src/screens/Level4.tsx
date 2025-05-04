@@ -21,7 +21,7 @@ const Level4: React.FC<Level4Props> = ({ onVictory, onGameOver }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
   const [lives, setLives] = useState(1);
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [timeLeft, setTimeLeft] = useState(90);
   const [score, setScore] = useState(0);
   const [mood, setMood] = useState<'neutral' | 'happy' | 'sad'>('neutral');
   const totalQuestions = questions.length;
