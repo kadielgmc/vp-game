@@ -71,7 +71,7 @@ const App = () => {
       {screen === 'level1' && <Level1 onNextLevel={startLevel2} onGameOver={goToMenu} />}
       {screen === 'level2' && <Level2 onNextLevel={startLevel3} onGameOver={goToMenu} />}
       {screen === 'level3' && <Level3 onNextLevel={startLevel4} onGoHome={goToMenu} />}
-      {screen === 'level4' && <Level4 onVictory={finishVictory} onGameOver={goToMenu} />}
+      {screen === 'level4' && <Level4 onVictory={finishVictory} onGameOver={finishGame} />}
 
       {screen === 'victory' && (
         <div className="text-center">
