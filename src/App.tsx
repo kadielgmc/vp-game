@@ -6,6 +6,7 @@ import Level2 from './screens/Level2';
 import Level3 from './screens/Level3';
 import Level4 from './screens/Level4';
 import Logo from './components/Logo';
+import logoImage from './assets/logo.png'; // 👈 tu logo
 
 const App = () => {
   const [screen, setScreen] = useState<'menu' | 'level1' | 'level2' | 'level3' | 'level4' | 'victory' | 'end'>('menu');
@@ -15,14 +16,16 @@ const App = () => {
   const startLevel2 = () => setScreen('level2');
   const startLevel3 = () => setScreen('level3');
   const startLevel4 = () => setScreen('level4');
-  const finishVictory = () => setScreen('victory'); // Nuevo estado para cuando gana
-  const finishGame = () => setScreen('end'); // Solo si pierde
+  const finishVictory = () => setScreen('victory');
+  const finishGame = () => setScreen('end');
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-8">
       {screen === 'menu' && (
         <div className="text-center">
-          <Logo mood="happy" />
+          {/* ✅ Nuevo logo agregado */}
+          <img src={logoImage} alt="Mi logo" className="w-32 h-auto mx-auto mb-4" />
+
           <h1 className="text-3xl font-bold mb-4">¡Aprende Passive Voice Jugando! 🎯</h1>
 
           {/* Sección Aprendiz */}
@@ -70,14 +73,13 @@ const App = () => {
       {screen === 'level3' && <Level3 onNextLevel={startLevel4} onGoHome={goToMenu} />}
       {screen === 'level4' && <Level4 onVictory={finishVictory} onGameOver={goToMenu} />}
 
-      {/* Mensaje especial SOLO si gana */}
       {screen === 'victory' && (
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-6 text-green-600 animate-bounce">
             🏆 ¡MISIÓN CUMPLIDA, AGENTE!
           </h2>
           <p className="mb-6 text-lg text-text-primary">
-            Completaste todos los desafíos del Passive Voice Master.<br/>
+            Completaste todos los desafíos del Passive Voice Master.<br />
             ¡Eres oficialmente un Maestro de la Voz Pasiva en inglés! 🇬🇧👨‍🎓👩‍🎓
           </p>
           <button
@@ -89,7 +91,6 @@ const App = () => {
         </div>
       )}
 
-      {/* Final simple si pierde */}
       {screen === 'end' && (
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6 text-red-500">¡Fin del juego! 💔</h2>
